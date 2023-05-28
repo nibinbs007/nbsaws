@@ -13,3 +13,11 @@ provider "aws" {
   secret_key = var.secret_key
   region     = var.region  # Singapore region
 }
+
+terraform {
+  backend "s3" {
+    bucket = "nbsterraform"
+    key    = "terraform.tfstate"
+    region = "ap-southeast-1"
+  }
+}
