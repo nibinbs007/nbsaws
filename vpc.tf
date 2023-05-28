@@ -17,3 +17,12 @@ resource "aws_subnet" "git_sub" {
     }
 }
 
+resource "aws_subnet" "git_sub" {
+  cidr_block = lookup(var.cidr,3)
+  vpc_id = aws_vpc.git.id
+  tags = {
+        Name  = "sub1_${lookup(var.tags,"name")}"
+    Email = lookup(var.tags, "email")
+    }
+}
+
