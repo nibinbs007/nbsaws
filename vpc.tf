@@ -21,7 +21,7 @@ resource "aws_subnet" "git_sub1" {
   cidr_block = lookup(var.cidr,3)
   vpc_id = aws_vpc.git.id
   tags = {
-        Name  = "sub1_${lookup(var.tags,"name")}"
+        Name  = "sub2_${lookup(var.tags,"name")}"
     Email = lookup(var.tags, "email")
     }
 }
