@@ -24,6 +24,15 @@ jobs:
           echo "deb [signed-by=/usr/share/keyrings/hashicorp.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list > /dev/null
           sudo apt-get update && sudo apt-get install terraform
 
+      - name: Configure AWS credentials
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          echo "aws_access_key_id = $AWS_ACCESS_KEY_ID" > aws_credentials
+          echo "aws_secret_access_key = $AWS_SECRET_ACCESS_KEY" >> aws_credentials
+          mkdir -p ~/.aws && cp aws_credentials ~/.aws/credentials
+
       - name: Terraform init
         run: terraform init
 
