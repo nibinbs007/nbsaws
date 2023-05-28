@@ -17,7 +17,7 @@ resource "aws_subnet" "git_sub" {
     }
 }
 
-resource "aws_subnet" "git_sub" {
+resource "aws_subnet" "git_sub1" {
   cidr_block = lookup(var.cidr,3)
   vpc_id = aws_vpc.git.id
   tags = {
