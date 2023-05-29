@@ -1,4 +1,4 @@
-variable "AWS_SECRET_ACCESS_KEY" {
+/*variable "AWS_SECRET_ACCESS_KEY" {
   description = "AWS access key"
   type        = string
 }
@@ -6,7 +6,7 @@ variable "AWS_SECRET_ACCESS_KEY" {
 variable "AWS_SECRET_ACCESS_KEY" {
   description = "AWS secret access key"
   type        = string
-}
+}*/
 variable "region" {
   type = string
 }
