@@ -26,8 +26,12 @@ resource "aws_route_table" "cmt1_priv_rt1" {
   depends_on = [ aws_vpc.cmt1, aws_nat_gateway.cmt1-natgw ]
 
   route {
-    cidr_block        = "0.0.0.0/0"
+    cidr_block        = "10.192.0.0/24"
     local_gateway_id  = aws_vpc.cmt1.id
+  }
+    route {
+    cidr_block        = "0.0.0.0/0"
+    gateway_id = aws_nat_gateway.cmt1-natgw.id
   }
 
   tags = {
