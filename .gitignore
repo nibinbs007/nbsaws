@@ -1,4 +1,6 @@
 .terraform
 *.hcl
 .terraform/
+*.tfstate
+*.tfstate.*
 .gitignore

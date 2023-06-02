@@ -1,10 +1,11 @@
 # Create public route table
 resource "aws_route_table" "cmt1_pub_rt1" {
   vpc_id = aws_vpc.cmt1.id
+  depends_on = [ aws_vpc.cmt1, aws_internet_gateway.cmt1-igw ]
 
   route {
     cidr_block        = "10.192.0.0/24"
-    local_gateway_id  = aws_vpc.cmt1.id
+    local_gateway_id = aws_vpc.cmt1.id
   }
 
   route {
@@ -22,6 +23,7 @@ resource "aws_route_table" "cmt1_pub_rt1" {
 #Create Private Route Table
 resource "aws_route_table" "cmt1_priv_rt1" {
   vpc_id = aws_vpc.cmt1.id
+  depends_on = [ aws_vpc.cmt1, aws_nat_gateway.cmt1-natgw ]
 
   route {
     cidr_block        = "10.192.0.0/24"

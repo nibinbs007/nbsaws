@@ -12,6 +12,7 @@ resource "aws_vpc" "cmt1" {
 resource "aws_subnet" "cmt1-sub1" {
   cidr_block = lookup(var.cidr, 2)
   vpc_id     = aws_vpc.cmt1.id
+  depends_on = [ aws_vpc.cmt1 ]
   tags = {
     Name  = "cmt1-sub1"
     Email = "nibin.bahulayansheena@ncs.com.sg"
@@ -23,6 +24,7 @@ resource "aws_subnet" "cmt1-sub1" {
 resource "aws_subnet" "cmt1-sub2" {
   cidr_block = lookup(var.cidr, 3)
   vpc_id     = aws_vpc.cmt1.id
+  depends_on = [ aws_vpc.cmt1 ]
   tags = {
     Name  = "cmt1-sub2"
     Email = "nibin.bahulayansheena@ncs.com.sg"
