@@ -30,3 +30,14 @@ resource "aws_route_table" "cmt1_priv_rt1" {
     Env   = "Dev"
   }
 }
+# Create public route table association
+resource "aws_route_table_association" "cmt1-pub" {
+  subnet_id = aws_subnet.cmt1-sub1.id
+  route_table_id = aws_route_table.cmt1_pub_rt1.id  
+}
+
+#Create private route table association
+resource "aws_route_table_association" "cmt1-priv" {
+  subnet_id = aws_subnet.cmt1-sub2.id
+  route_table_id = aws_route_table.cmt1_priv_rt1.id
+}
