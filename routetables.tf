@@ -31,7 +31,7 @@ resource "aws_route_table" "cmt1_priv_rt1" {
   }
     route {
     cidr_block        = "0.0.0.0/0"
-    gateway_id = aws_nat_gateway.cmt1-natgw.id
+    nat_gateway_id = aws_nat_gateway.cmt1-natgw.id
   }
 
   tags = {
