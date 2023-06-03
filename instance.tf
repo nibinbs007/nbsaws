@@ -4,7 +4,7 @@ resource "aws_instance" "cmt1-win" {
   instance_type = "t2.micro"
   key_name      = "git-key"
   subnet_id     = aws_subnet.cmt1-sub1.id
-  vpc_security_group_ids = [aws_security_group.cmt1-sg1] 
+  vpc_security_group_ids = [aws_security_group.cmt1-sg1.id]
   tags = {
     Name  = "cmt1-win"
     Email = "nibin.bahulayansheena@ncs.com.sg"
