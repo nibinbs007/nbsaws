@@ -20,7 +20,7 @@ resource "aws_security_group" "cmt1-sg1" {
   }
 
   tags = {
-    Name  = "cmt1-security-group"
+    Name  = "cmt1-security-group1"
     Email = "nibin.bahulayansheena@ncs.com.sg"
     Env   = "Dev"
   }
@@ -48,7 +48,7 @@ resource "aws_security_group" "cmt1-sg2" {
   }
 
   tags = {
-    Name  = "cmt1-security-group"
+    Name  = "cmt1-security-group2"
     Email = "nibin.bahulayansheena@ncs.com.sg"
     Env   = "Dev"
   }
