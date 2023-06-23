@@ -1,6 +1,6 @@
 # Create security group for windows
 resource "aws_security_group" "cmt1-sg1" {
-  name        = "cmt1-sg1"
+  name   = "cmt1-sg1"
   vpc_id = aws_vpc.cmt1.id
 
   # Ingress rules
@@ -15,7 +15,7 @@ resource "aws_security_group" "cmt1-sg1" {
   egress {
     from_port   = 0
     to_port     = 0
-    protocol    = "-1"  # Allow all outbound traffic
+    protocol    = "-1" # Allow all outbound traffic
     cidr_blocks = ["0.0.0.0/0"]
   }
 
@@ -28,7 +28,7 @@ resource "aws_security_group" "cmt1-sg1" {
 
 # Create security group for linux
 resource "aws_security_group" "cmt1-sg2" {
-  name        = "cmt1-sg2"
+  name   = "cmt1-sg2"
   vpc_id = aws_vpc.cmt1.id
 
   # Ingress rules
@@ -43,7 +43,7 @@ resource "aws_security_group" "cmt1-sg2" {
   egress {
     from_port   = 0
     to_port     = 0
-    protocol    = "-1"  # Allow all outbound traffic
+    protocol    = "-1" # Allow all outbound traffic
     cidr_blocks = ["0.0.0.0/0"]
   }
 
