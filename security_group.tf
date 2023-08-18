@@ -9,7 +9,7 @@ resource "aws_security_group" "cmt1-sg1" {
     from_port   = 3389
     to_port     = 3389
     protocol    = "tcp"
-    cidr_blocks = ["${var.myip}/32"]
+    cidr_blocks = "${var.myip}/32"
   }
   # Egress rules
   egress {
@@ -37,7 +37,7 @@ resource "aws_security_group" "cmt1-sg2" {
     from_port   = 0
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${var.myip}/32"]
+    cidr_blocks = "${var.myip}/32"
   }
   # Egress rules
   egress {
