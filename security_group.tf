@@ -9,7 +9,7 @@ resource "aws_security_group" "cmt1-sg1" {
     from_port   = 3389
     to_port     = 3389
     protocol    = "tcp"
-    cidr_blocks = ["202.166.43.187/32"]
+    cidr_blocks = ["${var.myip}/32"]
   }
   # Egress rules
   egress {
@@ -21,7 +21,7 @@ resource "aws_security_group" "cmt1-sg1" {
 
   tags = {
     Name  = "cmt1-security-group1"
-    Email = "nibin.bahulayansheena@ncs.com.sg"
+    Email = "sheena_nibin_bahulayan@tech.gov.sg"
     Env   = "Dev"
   }
 }
@@ -37,7 +37,7 @@ resource "aws_security_group" "cmt1-sg2" {
     from_port   = 0
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["202.166.43.187/32"]
+    cidr_blocks = ["${var.myip}/32"]
   }
   # Egress rules
   egress {
@@ -49,7 +49,7 @@ resource "aws_security_group" "cmt1-sg2" {
 
   tags = {
     Name  = "cmt1-security-group2"
-    Email = "nibin.bahulayansheena@ncs.com.sg"
+    Email = "sheena_nibin_bahulayan@tech.gov.sg"
     Env   = "Dev"
   }
 }

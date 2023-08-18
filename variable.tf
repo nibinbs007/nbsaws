@@ -1,6 +1,13 @@
 variable "region" {
-  default = "ap-southeast-1"
+  type = string
 }
 variable "cidr" {
   type = map(any)
+}
+variable "email" {
+  type = string
+}
+
+variable "myip" {
+  type = string
 }
