@@ -3,7 +3,7 @@ resource "aws_vpc" "cmt1" {
   cidr_block = lookup(var.cidr, 1)
   tags = {
     Name  = "cmt1"
-    Email = "sheena_nibin_bahulayan@tech.gov.sg"
+    Email = var.email
     Env   = "Dev"
   }
 }
@@ -15,7 +15,7 @@ resource "aws_subnet" "cmt1-sub1" {
   depends_on = [aws_vpc.cmt1]
   tags = {
     Name  = "cmt1-sub1"
-    Email = "sheena_nibin_bahulayan@tech.gov.sg"
+    Email = var.email
     Env   = "Dev"
   }
 }
@@ -27,7 +27,7 @@ resource "aws_subnet" "cmt1-sub2" {
   depends_on = [aws_vpc.cmt1]
   tags = {
     Name  = "cmt1-sub2"
-    Email = "sheena_nibin_bahulayan@tech.gov.sg"
+    Email = var.email
     Env   = "Dev"
   }
 }
@@ -37,7 +37,7 @@ resource "aws_eip" "cmt1-nat-eip" {
   vpc = true
   tags = {
     Name  = "cmt1-nat-eip"
-    Email = "sheena_nibin_bahulayan@tech.gov.sg"
+    Email = var.email
     Env   = "Dev"
   }
 }

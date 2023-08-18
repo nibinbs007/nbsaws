@@ -8,7 +8,7 @@ resource "aws_instance" "cmt1-win" {
   associate_public_ip_address = true
   tags = {
     Name  = "cmt1-win"
-    Email = "sheena_nibin_bahulayan@tech.gov.sg"
+    Email = var.email
     Env   = "Dev"
   }
 }

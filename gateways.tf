@@ -3,7 +3,7 @@ resource "aws_internet_gateway" "cmt1-igw" {
   depends_on = [aws_vpc.cmt1]
   tags = {
     Name  = "cmt1-igw"
-    Email = "sheena_nibin_bahulayan@tech.gov.sg"
+    Email = var.email
     Env   = "Dev"
   }
 }
@@ -14,7 +14,7 @@ resource "aws_nat_gateway" "cmt1-natgw" {
   depends_on    = [aws_eip.cmt1-nat-eip, aws_subnet.cmt1-sub1]
   tags = {
     Name  = "cmt1-natgw"
-    Email = "sheena_nibin_bahulayan@tech.gov.sg"
+    Email = var.email
     Env   = "Dev"
   }
 }

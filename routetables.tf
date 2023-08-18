@@ -10,7 +10,7 @@ resource "aws_route_table" "cmt1_pub_rt1" {
 
   tags = {
     Name  = "cmt1-public-rt1"
-    Email = "sheena_nibin_bahulayan@tech.gov.sg"
+    Email = var.email
     Env   = "Dev"
   }
 }
@@ -26,7 +26,7 @@ resource "aws_route_table" "cmt1_priv_rt1" {
 
   tags = {
     Name  = "cmt1-priv_rt1"
-    Email = "sheena_nibin_bahulayan@tech.gov.sg"
+    Email = var.email
     Env   = "Dev"
   }
 }

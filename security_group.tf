@@ -21,7 +21,7 @@ resource "aws_security_group" "cmt1-sg1" {
 
   tags = {
     Name  = "cmt1-security-group1"
-    Email = "sheena_nibin_bahulayan@tech.gov.sg"
+    Email = var.email
     Env   = "Dev"
   }
 }
@@ -49,7 +49,7 @@ resource "aws_security_group" "cmt1-sg2" {
 
   tags = {
     Name  = "cmt1-security-group2"
-    Email = "sheena_nibin_bahulayan@tech.gov.sg"
+    Email = var.email
     Env   = "Dev"
   }
 }
