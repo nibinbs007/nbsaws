@@ -5,4 +5,4 @@ cidr = {
 }
 email = "sheena_nibin_bahulayan@tech.gov.sg"
 region = "ap-southeast-1"
-myip = ""
+myip = "202.166.43.187/32"
