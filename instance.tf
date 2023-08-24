@@ -1,6 +1,6 @@
 # Create Windows VM
 resource "aws_instance" "cmt1-win" {
-  ami                         = "ami-03ad4add8602210a8"
+  ami                         = "ami-062508d30d9f2cb68"
   instance_type               = "t2.micro"
   key_name                    = "git-key"
   subnet_id                   = aws_subnet.cmt1-sub1.id
