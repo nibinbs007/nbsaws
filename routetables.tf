@@ -4,7 +4,7 @@ resource "aws_route_table" "cmt1_pub_rt1" {
   depends_on = [aws_vpc.cmt1, aws_internet_gateway.cmt1-igw]
 
   route {
-    cidr_block = var.myip
+    cidr_block = element(var.myip,0)
     gateway_id = aws_internet_gateway.cmt1-igw.id
   }
 
