@@ -23,7 +23,7 @@ resource "aws_instance" "cmt1-app" {
   associate_public_ip_address = true
   count = 2
   tags = {
-   name = "cmt1-app${count.index}"
+    Name = "cmt1-app${count.index}"
     Email = var.email
     Env   = "Dev"
   }  
