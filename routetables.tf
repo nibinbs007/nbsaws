@@ -7,6 +7,10 @@ resource "aws_route_table" "cmt1_pub_rt1" {
     cidr_block = element(var.myip,0)
     gateway_id = aws_internet_gateway.cmt1-igw.id
   }
+    route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.cmt1-igw.id
+  }
 
   tags = {
     Name  = "cmt1-public-rt1"
