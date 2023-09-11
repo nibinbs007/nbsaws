@@ -29,7 +29,7 @@ resource "aws_instance" "cmt1-app" {
   }  
 }
 
-#Create Redhat ansible node
+#Create Redhat Ansible node
 resource "aws_instance" "Ansible" {
   ami                         = "ami-02acda7aaa1f944e5"
   instance_type               = "t2.micro"
