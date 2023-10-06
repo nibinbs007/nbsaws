@@ -46,7 +46,7 @@ resource "aws_instance" "Ansible" {
 }
 
 #Create redhat workloads
-resource "aws_instance" "Ansible" {
+resource "aws_instance" "Linux_WL" {
   ami                         = "ami-02acda7aaa1f944e5"
   instance_type               = "t2.micro"
   key_name                    = "git-key"
