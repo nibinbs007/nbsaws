@@ -55,7 +55,7 @@ resource "aws_instance" "Linux_WL" {
   associate_public_ip_address = true
   count = 2
   tags = {
-    Name = "Ansible"
+    Name = "redhat${count.index}"
     Email = var.email
     Env   = "Dev"
   }  
