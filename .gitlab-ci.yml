@@ -21,13 +21,16 @@ stages:
 
 plan:
   stage: plan
+  image: ruby:3.1
   script:
-    - |
-      export TF_TOKEN=$TF_VAR_token
-      export TF_WORKSPACE=$TF_VAR_workspace
-      terraform login
-      terraform init
-      terraform plan -out=tfplan.out
+    - apt-get update && apt-get install -y unzip # Install unzip (required for Terraform)
+    - curl -fsSL https://releases.hashicorp.com/terraform/0.12.31/terraform_0.12.31_linux_amd64.zip -o terraform.zip
+    - unzip terraform.zip -d /usr/local/bin
+    - export TF_TOKEN=$TF_VAR_token
+    - export TF_WORKSPACE=$TF_VAR_workspace
+    - terraform login
+    - terraform init
+    - terraform plan -out=tfplan.out
   only:
-    - main  # Set the branch or event that triggers the pipeline
-  when: manual  # Optionally, you can set it to `on_success` or `on_failure`
+    - main
+  when: manual
