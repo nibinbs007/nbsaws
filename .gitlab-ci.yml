@@ -33,4 +33,3 @@ plan:
     - terraform plan -out=tfplan.out
   only:
     - main
-  when: always
