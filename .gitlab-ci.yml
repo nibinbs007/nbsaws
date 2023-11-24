@@ -9,11 +9,11 @@ init:
   stage: init
   image: "hashicorp/terraform:latest"
   script:
-    - export TF_TOKEN="$TF_VAR_token" # Set environment variable TF_TOKEN
-    - export TF_WORKSPACE="$TF_VAR_workspace" # Set environment variable TF_WORKSPACE
+    - export TF_TOKEN="$TF_VAR_token"
+    - export TF_WORKSPACE="$TF_VAR_workspace"
     - terraform init \
         -backend-config="address=https://app.terraform.io" \
-        -backend-config="organization=$TF_VAR_organization" # Replace with your Terraform org
+        -backend-config="organization=$TF_VAR_organization" \
         -backend-config="workspaces.name=$TF_VAR_workspace" \
         -backend-config="token=$TF_VAR_token"
 
@@ -22,4 +22,4 @@ plan:
   image: "hashicorp/terraform:latest"
   script:
     - terraform plan \
-        -var="some_variable=value" # Add any additional variables if needed
+        -var="some_variable=value"
