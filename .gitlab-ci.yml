@@ -1,4 +1,4 @@
-image: "terraform:0.12.31" # Specify a particular version of Terraform
+image: hashicorp/terraform:0.12.31 # Specify a particular version of Terraform
 
 stages:
   - init
