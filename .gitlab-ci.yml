@@ -3,7 +3,7 @@ stages:
   - plan
 
 variables:
-  TF_VAR_organization: "your_organization"
+  TF_VAR_organization: "nbs007"
 
 init:
   stage: init
