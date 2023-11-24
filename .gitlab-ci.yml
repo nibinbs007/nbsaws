@@ -1,27 +1,24 @@
-image: hashicorp/terraform:0.12.31 # Specify a particular version of Terraform
+image: hashicorp/terraform:0.14.4
+
+variables:
+ TF_VAR_access_key: $AWS_ACCESS_KEY_ID
+ TF_VAR_secret_key: $AWS_SECRET_ACCESS_KEY
 
 stages:
-  - init
-  - plan
+ - validate
+ - plan
+ - apply
 
-init:
-  stage: init
-  script:
-    - apt-get update && apt-get install -y unzip
-    - curl -fsSL https://releases.hashicorp.com/terraform/0.12.31/terraform_0.12.31_linux_amd64.zip -o terraform.zip
-    - unzip terraform.zip -d /usr/local/bin
-    - export TF_TOKEN=$TF_VAR_token
-    - export TF_WORKSPACE=$TF_VAR_workspace
-    - terraform login
+validate:
+ stage: validate
+ script:
     - terraform init
-  # Optional: Add artifacts if needed
-  # artifacts:
-  #   paths:
-  #     - .terraform # Adjust this path to include required Terraform initialization artifacts
+    - terraform validate
 
 plan:
-  stage: plan
-  dependencies:
-    - init
-  script:
+ stage: plan
+ script:
     - terraform plan
+ when: manual
+ only:
+    - master
