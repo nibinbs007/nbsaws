@@ -18,10 +18,11 @@
 
 
 stages:
+  - init
   - plan
 
-plan:
-  stage: plan
+init:
+  stage: init
   image: ruby:3.1
   script:
     - apt-get update && apt-get install -y unzip # Install unzip (required for Terraform)
@@ -31,7 +32,13 @@ plan:
     - export TF_WORKSPACE=$TF_VAR_workspace
     - terraform login
     - terraform init
-    - terraform plan -out=tfplan.out
-  only:
-    - main
-  when: manual
+  
+plan:
+ stage: plan
+ dependencies:
+    - init
+ script:
+    - terraform plan
+#only:
+#    - main
+#  when: manual
