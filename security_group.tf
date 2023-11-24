@@ -9,21 +9,21 @@ resource "aws_security_group" "cmt1-sg1" {
     from_port   = 3389
     to_port     = 3389
     protocol    = "tcp"
-    cidr_blocks = [element(var.myip,0)]
+    cidr_blocks = [element(var.myip, 0)]
   }
-    ingress {
+  ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-      ingress {
+  ingress {
     from_port   = 5985
     to_port     = 5985
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-        ingress {
+  ingress {
     from_port   = 5986
     to_port     = 5986
     protocol    = "tcp"
@@ -56,7 +56,7 @@ resource "aws_security_group" "cmt1-sg2" {
     from_port   = 0
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [element(var.myip,0)]
+    cidr_blocks = [element(var.myip, 0)]
   }
   # Egress rules
   egress {

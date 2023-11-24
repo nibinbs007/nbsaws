@@ -39,10 +39,10 @@ resource "aws_instance" "Ansible" {
   vpc_security_group_ids      = [aws_security_group.cmt1-sg1.id]
   associate_public_ip_address = true
   tags = {
-    Name = "Ansible"
+    Name  = "Ansible"
     Email = var.email
     Env   = "Dev"
-  }  
+  }
 }
 
 #Create redhat workloads
@@ -53,10 +53,10 @@ resource "aws_instance" "Linux_WL" {
   subnet_id                   = aws_subnet.cmt1-sub1.id
   vpc_security_group_ids      = [aws_security_group.cmt1-sg1.id]
   associate_public_ip_address = true
-  count = 2
+  count                       = 2
   tags = {
-    Name = "redhat${count.index}"
+    Name  = "redhat${count.index}"
     Email = var.email
     Env   = "Dev"
-  }  
+  }
 }

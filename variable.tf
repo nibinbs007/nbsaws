@@ -9,5 +9,5 @@ variable "email" {
 }
 
 variable "myip" {
-  type = list
+  type = list(any)
 }
