@@ -1,12 +1,11 @@
 stages:
- - init
  - plan
 
 variables:
  TF_VAR_token: $CI_JOB_TOKEN
  TF_VAR_workspace: $CI_COMMIT_REF_NAME
 
-init:
+plan :
  stage: init
  image: ruby:3.1
  script:
@@ -17,13 +16,7 @@ init:
     - export TF_WORKSPACE=$TF_VAR_workspace
     - terraform login
     - terraform init
-
-plan:
- stage: plan
- dependencies:
-    - init
- script:
     - terraform plan
  only:
     - main
- when: manual
+ when: always
