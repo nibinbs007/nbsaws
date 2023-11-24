@@ -14,7 +14,7 @@ plan :
     - unzip terraform.zip -d /usr/local/bin
     - export TF_TOKEN=$TF_VAR_token
     - export TF_WORKSPACE=$TF_VAR_workspace
-    - terraform login
+    - terraform init
     - terraform plan
  only:
     - main
