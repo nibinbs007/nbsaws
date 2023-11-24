@@ -9,5 +9,6 @@ terraform {
 
 #Configure provider and access
 provider "aws" {
-  region = var.region # Singapore region
+  version = "~> 4.0"
+  region  = var.region # Singapore region
 }
