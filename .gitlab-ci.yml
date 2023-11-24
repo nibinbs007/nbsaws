@@ -6,7 +6,7 @@ variables:
  TF_VAR_workspace: $CI_COMMIT_REF_NAME
 
 plan :
- stage: init
+ stage: plan
  image: ruby:3.1
  script:
     - apt-get update && apt-get install -y unzip # Install unzip (required for Terraform)
@@ -15,7 +15,6 @@ plan :
     - export TF_TOKEN=$TF_VAR_token
     - export TF_WORKSPACE=$TF_VAR_workspace
     - terraform login
-    - terraform init
     - terraform plan
  only:
     - main
